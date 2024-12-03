@@ -27,7 +27,7 @@ def get_bigquery_data_for_date(target_date):
          FROM UNNEST(event_params) AS param 
          WHERE param.key = 'id') AS int) AS user_id,
       PARSE_DATE("%Y%m%d", event_date) AS date  
-    FROM `glory-casino-ga4-analytics.analytics_294913339.events_intraday_*`
+    FROM `ga4-analytics.analytics.events_intraday_*`
     WHERE  event_name = 'registration'
     AND (SELECT value.int_value 
          FROM UNNEST(event_params) AS param 
