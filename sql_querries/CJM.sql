@@ -5,7 +5,7 @@ WITH UserPaths AS (
     STRING_AGG(event_name, ' -> ' ORDER BY event_date) AS user_path,
     COUNTIF(event_name = 'start_game') AS start_game_count
   FROM
-    `glory-casino-ga4-analytics.analytics_294913339.events_intraday_202404*`
+    `ga4-analytics.analytics.events_intraday_202404*`
   GROUP BY
     user_pseudo_id,event_date
 ),
