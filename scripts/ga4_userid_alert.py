@@ -84,7 +84,7 @@ def fetch_bigquery_data():
                         ELSE 0
                     END) AS sessionDurationInSeconds
             FROM
-                `glory-casino-ga4-analytics.analytics_294913339.events*`
+                `ga4-analytics.analytics.events*`
             GROUP BY
                 1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,15,17,18,19,20,21,22,23,24
             LIMIT 1000
