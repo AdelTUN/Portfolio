@@ -12,7 +12,7 @@ def get_engine():
 
 # Function to fetch data from BigQuery for a specific date
 def fetch_bigquery_data_for_date(target_date):
-    key_path = "/opt/airflow/dags/ga4_to_analytics_db_data_glory_and_glorycoin/ga4_to_analytics_db_data/banger-casino-ga4-analytics-f7b54ec28edc.json"
+    key_path = "/opt/airflow/dags/ga4_to_analytics_db/ga4_to_analytics_db_data/ga4-analytics.json"
     client = bigquery.Client.from_service_account_json(key_path)
     query = f"""
     WITH user_events AS (
