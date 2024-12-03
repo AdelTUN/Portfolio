@@ -105,7 +105,7 @@ def fetch_bigquery_data():
 # Function to write data to analytics database
 def write_data_to_analytics_db(df, if_exists='append') -> None:
     try:
-        engine = create_engine('postgresql+psycopg2://mainanalytics:chie_r3eTu7o@analyticsdb.glorycoin.co:25060/analytics')
+        engine = create_engine('postgresql+psycopg2://<username>:<password>@<host>:<port>/<database>')
         
         # Convert specific columns from Row objects to strings
         df['user_id'] = df['user_id'].apply(lambda x: x['field_name'] if 'field_name' in x else None)
