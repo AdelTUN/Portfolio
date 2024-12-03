@@ -93,7 +93,7 @@ def fetch_bigquery_data():
                     ELSE 0
                 END) AS sessionDurationInSeconds
             FROM
-                banger-casino-ga4-analytics.analytics_402904639.events_*
+                ga4-analytics.analytics.events_*
             GROUP BY
                 1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,15,17,18,19,20,21,22,23,24
         )
