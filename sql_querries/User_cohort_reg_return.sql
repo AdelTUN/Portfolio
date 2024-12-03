@@ -7,7 +7,7 @@ WITH prep AS (
     SUM((SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'engagement_time_msec')) AS engagement_time_msec,
     FIRST_VALUE(MIN(PARSE_DATE('%Y%m%d', event_date))) OVER (PARTITION BY user_pseudo_id ORDER BY MIN(event_date) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS first_session_date
   FROM
-    `glory-casino-ga4-analytics.analytics_294913339.events_intraday_*`
+    `ga4-analytics.analytics.events_intraday_*`
   WHERE
     _table_suffix BETWEEN FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 4 WEEK)) AND FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 0 WEEK))
     AND event_name NOT IN ('first_visit', 'first_open') 
@@ -21,7 +21,7 @@ registration_events AS (
     user_pseudo_id,
     MIN(PARSE_DATE('%Y%m%d', event_date)) AS registration_date
   FROM
-    `glory-casino-ga4-analytics.analytics_294913339.events_intraday_*`
+    `ga4-analytics.analytics.events_intraday_*`
   WHERE
     _table_suffix BETWEEN FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 4 WEEK)) AND FORMAT_DATE('%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 0 WEEK))
     AND event_name = 'registration' 
