@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from datetime import datetime, timedelta
 
 def get_postgres_data_for_date(target_date):
-    engine = create_engine('oracle+cx_oracle://oraclecopy:A#defd23fwfesadf@192.168.179.202:1521/GLORY202')
+    engine = create_engine('postgresql+psycopg2://<username>:<password>@<host>:<port>/<database>')
     query = f"""
     SELECT DISTINCT 
         ID_CLIENT::BIGINT,DATE_REGISTR
